@@ -1,0 +1,101 @@
+﻿<Window x:Class="AudioPlayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Аудиоплеер 2.0" Height="450" Width="800">
+    <Grid Background="#FFFBFDFC">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="204*"/>
+            <RowDefinition Height="59*"/>
+            <RowDefinition Height="87*"/>
+            <RowDefinition Height="84*"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="MediaList" Grid.ColumnSpan="8"/>
+        <MediaElement x:Name="media" LoadedBehavior="Manual" MediaOpened="media_MediaOpened" Grid.ColumnSpan="8" OpacityMask="#FFFDEEEE"/>
+        <Slider x:Name="SliderMusic" Grid.ColumnSpan="8" 
+                VerticalAlignment="Center" 
+                ValueChanged="SliderMusic_ValueChanged" 
+                Minimum="0" Maximum="1" 
+                Value="0" Height="18"/>
+        <Slider x:Name="SliderVolume" 
+                Grid.Row="2" 
+                Grid.Column="7"
+                VerticalAlignment="Top"
+                Value="6"
+                ValueChanged="SliderVolume_ValueChanged" Height="18" Margin="0,20,0,0" />
+        <TextBlock
+                   x:Name="Timer"
+                   Text="00:00"
+                   FontSize="18"
+                   HorizontalAlignment="Left" Width="43" VerticalAlignment="Bottom" Margin="50" Grid.ColumnSpan="2"/>
+        <TextBlock 
+               VerticalAlignment="Bottom"
+               x:Name="TimerLeft"
+               Text="00:00"
+               FontSize="18"
+               HorizontalAlignment="Left"
+               Grid.Column="7" Height="24" Margin="0,0,0,51" Width="43"/>
+        <TextBlock Text="Громкость" 
+                   Grid.Column="6" 
+                   FontSize="20" 
+                   VerticalAlignment="Top" 
+                   Grid.Row="2" Height="26" Margin="0,16,0,0"/>
+        <Button x:Name="OpenBtn" 
+                Content="Папка с музыкой" 
+                FontSize="18" 
+                Grid.Row="3" Grid.ColumnSpan="4"
+                Click="OpenBtn_Click" 
+                Margin="0,7,0,0" Background="#FF02BE68"/>
+        <Button x:Name="History" 
+                Content="история" 
+                FontSize="18" 
+                Grid.Row="4"  Grid.Column="4" Grid.ColumnSpan="6"
+                Click="history_click" 
+                Margin="0,7,0,0" Background="#FF02BE68"/>
+        <Button x:Name="BackBtn" 
+                Content="Назад"
+                Click="BackBtn_Click"
+                FontSize="18"
+                Grid.Row="2" 
+                Grid.Column="0" Margin="0,22,0,0" Background="#FF02BE68"/>
+        <Button x:Name="PlayButton"
+                Content="Старт"
+                Click="StartBtn_Click"
+                FontSize="18"
+                Grid.Row="2" 
+                Grid.Column="1" Margin="0,22,0,0" Background="White"/>
+        <Button x:Name="StopButton"
+                Content="СTOП"
+                Click="StopBtn_Click"
+                FontSize="18"
+                Grid.Row="2" 
+                Grid.Column="2" Margin="0,22,0,0" Background="#FFF98A8A"/>
+        <Button x:Name="NextBtn"
+                Content="Вперед"
+                Click="NextBtn_Click"
+                FontSize="18"
+                Grid.Row="2" 
+                Grid.Column="3" Margin="0,22,0,0" Background="#FF02BE68"/>
+        <Button x:Name="shuffleButton"
+                Content="Перемешка"
+                Click="shuffleButton_Click"
+                FontSize="18"
+                Grid.Row="2" 
+                Grid.Column="4" Margin="0,22,0,0" Background="#FFFEFEFF"/>
+        <Button x:Name="repeatButton"
+                Content="Повтор: Выкл"
+                Click="repeatButton_Click"
+                FontSize="18"
+                Grid.Row="2" 
+                Grid.Column="5" Margin="0,22,0,0" Background="#FF02BE68"/>
+    </Grid>
+</Window>
